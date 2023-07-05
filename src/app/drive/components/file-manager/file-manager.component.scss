@@ -1,0 +1,32 @@
+/* MAIN */
+main {
+  width: 100%;
+  background-color: var(--primary-bg-with-shadow-color);
+  box-shadow: var(--primary-box-shadow);
+  border: 1px solid transparent;
+  border-radius: 12px;
+  display: flex;
+}
+
+main table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+tbody tr:hover {
+  cursor: pointer;
+  background-color: var(--primary-bg-color);
+  border-radius: 6px;
+}
+
+tr .name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 8px;
+}
+
+td {
+  text-align: center;
+  vertical-align: middle;
+}

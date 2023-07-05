@@ -1,0 +1,22 @@
+/* ACTION */
+.actions{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center !important;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.action{
+    display: flex;
+    justify-content: center;
+    align-items: center !important;
+    gap: 8px; 
+    border: 1px solid transparent;
+    background-color: var(--primary-bg-with-shadow-color);
+    box-shadow: var(--primary-box-shadow);
+    border-radius: 12px;
+    width: 120px;
+    cursor: pointer;
+}

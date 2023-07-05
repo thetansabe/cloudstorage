@@ -1,0 +1,33 @@
+<!-- Actions -->
+<section class="actions">
+  <div class="action create-folder">
+    <i class="fa-solid fa-folder"></i>
+    <p>New Folder</p>
+  </div>
+
+  <div class="action create-file">
+    <i class="fa-solid fa-file"></i>
+    <p>New File</p>
+  </div>
+
+  <div class="action upload" (click)="turnOnUploader()">
+    <i class="fa-solid fa-upload"></i>
+    <p>Upload</p>
+    <input
+      type="file"
+      hidden
+      id="fileUpload"
+      (change)="uploadFile($event)"
+      multiple
+    />
+  </div>
+</section>
+
+<section style="margin-bottom: 20px">
+  <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+    <div
+      class="bg-blue-600 h-2.5 rounded-full"
+      [ngStyle]="{ width: percentage + '%' }"
+    ></div>
+  </div>
+</section>

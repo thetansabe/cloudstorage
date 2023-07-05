@@ -1,0 +1,31 @@
+<!-- HEADER -->
+<header class="mb-4">
+  <div class="header_left">
+    <h1>GG Drive</h1>
+  </div>
+
+  <div class="header_search">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="text" placeholder="Search in Drive" />
+  </div>
+
+  <div class="header_right">
+    <div class="noti relative">
+      <button (click)="showNoti()" class="w-10">
+        <i class="fa-solid fa-bell hover:cursor-pointer"></i>
+
+        <div
+          class="absolute bottom-auto left-auto right-0 top-0 z-10 inline-block -translate-y-1/2 translate-x-2/4 rotate-0 skew-x-0 skew-y-0 scale-x-100 scale-y-100 whitespace-nowrap rounded-full bg-neutral-700 px-2 py-1 text-center align-baseline text-xs font-bold leading-none text-white"
+        >
+          {{ notiCount }}
+        </div>
+      </button>
+
+      <ng-template #dropdown></ng-template>
+    </div>
+
+    <div class="avatar">
+      <img src="https://api.dicebear.com/6.x/pixel-art/svg" alt="dummyavatar" />
+    </div>
+  </div>
+</header>

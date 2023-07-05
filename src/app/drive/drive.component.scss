@@ -1,0 +1,25 @@
+/* NAV */
+.nav{
+    width: 100%;
+    background-color: var(--primary-bg-with-shadow-color);
+    box-shadow: var(--primary-box-shadow);
+    border: 1px solid transparent;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    padding-left: 8px;
+    margin-bottom: 20px;
+}
+
+.nav p:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.nav .base{
+    font-weight: 100;
+}
+
+.nav p:last-child{
+    margin-left: 8px;
+}
