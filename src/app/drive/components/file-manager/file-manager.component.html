@@ -1,25 +1,35 @@
 <!-- MAIN -->
 <main>
-    <table *ngIf="paginatedFiles">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Size</th>
-                <th>Last Modified</th>
-                <th>Modified by</th>
-            </tr>
-        </thead>
+  <table *ngIf="paginatedFiles">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Size</th>
+        <th>Last Modified</th>
+        <th>Modified by</th>
+      </tr>
+    </thead>
 
-        <tbody *ngFor="let file of paginatedFiles.files">
-            <tr class="leading-10">
-                <td class="name">
-                    <i [ngClass]="file.extension | icon"></i>
-                    <p>{{file.name}}</p>
-                </td>
-                <td>{{file.size ?? 0 | size}}</td>
-                <td>{{file.modifiedDate | date: "short"}}</td>
-                <td>{{file.modifiedBy}}</td>
-            </tr>
-        </tbody>
-    </table>
+    <tbody>
+      <tr
+        *ngFor="let file of paginatedFiles.files"
+        class="leading-10"
+        (contextmenu)="renderActions($event, file)"
+      >
+        <td class="name">
+          <i [ngClass]="file.extension | icon"></i>
+          <p>{{ file.name }}</p>
+        </td>
+        <td>{{ file.size ?? 0 | size }}</td>
+        <!--  -->
+
+        <td>{{ file.modifiedDate | date : "short" }}</td>
+        <td>{{ file.modifiedBy }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #fileActions>
+    <app-file-actions></app-file-actions>
+  </ng-template>
 </main>

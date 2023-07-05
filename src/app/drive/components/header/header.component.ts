@@ -13,24 +13,21 @@ export class HeaderComponent {
   @ViewChild('dropdown', { read: ViewContainerRef }) dropdown: ViewContainerRef | undefined;;
   
   constructor(
-    private _viewContainerRef: ViewContainerRef, 
-    private _toggle: ToggleService,
-    private _noti: NotiService) { }
+    private toggle: ToggleService,
+    private noti: NotiService) { }
   
   notiCount : number = 0;
   displayNotis: DisplayNotification[] = [];
 
   ngOnInit(){
-    this._noti.notifications$.subscribe(notis => {
+    this.noti.notifications$.subscribe(notis => {
       this.notiCount = notis.length;
       this.displayNotis = notis.reverse();
-      console.log('listen notis from header: ', this.displayNotis);
-      
     });
   }
 
   showNoti(){
-    if(this._toggle.showDropdown){
+    if(this.toggle.showDropdown){
       this.dropdown?.clear();
       const dropdownRef = this.dropdown?.createComponent(DropDownComponent);
       dropdownRef!.instance.displayNotis = this.displayNotis;
@@ -39,6 +36,6 @@ export class HeaderComponent {
       this.dropdown?.clear();
     }
 
-    this._toggle.toggleDropdown();
+    this.toggle.toggleDropdown();
   }
 }

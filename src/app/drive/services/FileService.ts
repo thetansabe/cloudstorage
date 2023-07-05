@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class FileService {
-  constructor(private _http: HttpClient) {}
+  constructor(private readonly _http: HttpClient) {}
 
   ngOnInit(): void {}
 
@@ -99,15 +99,33 @@ export class FileService {
   }
 
   //upload file
-  postFile(formData: FormData): Observable<any> {
+  postFile(formData: FormData, authToken: string): Observable<any> {
     const endpoint = environment.apiUrl + environment.upload;
     const headers = new HttpHeaders()
-                  .set('Authorization', environment.token);
+                  .set('Authorization', authToken);
 
     return this._http.post<string>(endpoint, formData, {
       headers,
       reportProgress: true,
       observe: 'events',
+    });
+  }
+
+  getPaginatedFiles
+    (parentId: string, page: number, pageSize: number, authToken: string): 
+    Observable<ListFilesPaginatedResponse> 
+  {
+    const endpoint = environment.apiUrl + environment.paginatedList;
+    const headers = new HttpHeaders()
+                  .set('Authorization', authToken);
+
+    return this._http.get<ListFilesPaginatedResponse>(endpoint, {
+      headers,
+      params: {
+        parentId: parentId,
+        page: page.toString(),
+        pageSize: pageSize.toString(),
+      },
     });
   }
 }

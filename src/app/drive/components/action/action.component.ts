@@ -35,7 +35,8 @@ export class ActionComponent {
   uploadFile(event: any){
     const formData = createFormData(event.target.files, environment.storageId);
     
-    const handleUpload = this.fileService.postFile(formData).subscribe({
+    const handleUpload = this.fileService
+              .postFile(formData, environment.token).subscribe({
       next: (event: HttpEvent<any>) => {
         //console.log('event: ', event);
         
